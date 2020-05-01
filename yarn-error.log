@@ -1,0 +1,57 @@
+Arguments: 
+  F:\Softwares\NodeJs\node.exe F:\Softwares\Yarn\bin\yarn.js install
+
+PATH: 
+  C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Java\jdk1.8.0_221\bin;F:\Softwares\Git\cmd;C:\ProgramData\chocolatey\bin;F:\Softwares\NodeJs\;F:\Softwares\Yarn\bin\;C:\Users\Anubhav\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Anubhav\AppData\Local\Programs\Python\Python37-32\;C:\Users\Anubhav\AppData\Local\Microsoft\WindowsApps;F:\Softwares\Microsoft VS Code\bin;C:\Users\Anubhav\AppData\Roaming\npm;C:\Users\Anubhav\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  13.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz: Request failed "503 Service Unavailable"
+      at ResponseError.ExtendableBuiltin (F:\Softwares\Yarn\lib\cli.js:696:66)
+      at new ResponseError (F:\Softwares\Yarn\lib\cli.js:802:124)
+      at Request.<anonymous> (F:\Softwares\Yarn\lib\cli.js:66166:16)
+      at Request.emit (events.js:315:20)
+      at Request.module.exports.Request.onRequestResponse (F:\Softwares\Yarn\lib\cli.js:141625:10)
+      at ClientRequest.emit (events.js:315:20)
+      at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:610:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:116:17)
+      at TLSSocket.socketOnData (_http_client.js:479:22)
+      at TLSSocket.emit (events.js:315:20)
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "~37.0.3",
+      "react": "~16.9.0",
+      "react-dom": "~16.9.0",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+      "react-native-web": "~0.11.7"
+    },
+    "devDependencies": {
+      "babel-preset-expo": "~8.1.0",
+      "@babel/core": "^7.8.6"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
