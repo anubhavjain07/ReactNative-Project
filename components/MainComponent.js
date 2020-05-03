@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Menu from './MenuComponent';
 import Home from './HomeComponent';
 import Dishdetail from './DishdetailComponent';
+import About from './AboutComponent';
+import Contact from './ContactComponent';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -9,6 +11,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const MenuNavigator = createStackNavigator();
 const HomeNavigator = createStackNavigator();
+const ContactNavigator = createStackNavigator();
+const AboutNavigator = createStackNavigator();
 
 function MenuNavigatorScreen() {
     return (
@@ -57,6 +61,49 @@ function HomeNavigatorScreen() {
     );
 }
 
+function ContactNavigatorScreen() {
+    return (
+        <ContactNavigator.Navigator
+            initialRouteName='Contact'
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#512DA8'
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    color: '#fff'
+                }
+            }}
+        >
+            <ContactNavigator.Screen
+                name="Contact Us"
+                component={Contact} />
+        </ContactNavigator.Navigator>
+    );
+}
+
+
+function AboutNavigatorScreen() {
+    return (
+        <AboutNavigator.Navigator
+            initialRouteName='About'
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#512DA8'
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    color: '#fff'
+                }
+            }}
+        >
+            <AboutNavigator.Screen
+                name="About Us"
+                component={About} />
+        </AboutNavigator.Navigator>
+    );
+}
+
 const MainNavigator = createDrawerNavigator();
 
 function MainNavigatorDrawer() {
@@ -71,8 +118,14 @@ function MainNavigatorDrawer() {
                 name="Home"
                 component={HomeNavigatorScreen} />
             <MainNavigator.Screen
+                name="About Us"
+                component={AboutNavigatorScreen} />
+            <MainNavigator.Screen
                 name="Menu"
                 component={MenuNavigatorScreen} />
+            <MainNavigator.Screen
+                name="Contact"
+                component={ContactNavigatorScreen} />
 
         </MainNavigator.Navigator>
     );
