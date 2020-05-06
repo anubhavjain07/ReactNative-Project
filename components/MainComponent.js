@@ -9,6 +9,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer';
 import { Icon } from "react-native-elements";
 import { ScrollView, Text, View, Image, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchComments, fetchDishes, fetchLeaders, fetchPromos } from '../redux/ActionCreators';
+
+const mapStateToProps = (state) => {
+    return {
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchComments: () => dispatch(fetchComments()),
+    fetchDishes: () => dispatch(fetchDishes()),
+    fetchLeaders: () => dispatch(fetchLeaders()),
+    fetchPromos: () => dispatch(fetchPromos())
+})
+
 
 
 const MenuNavigator = createStackNavigator();
@@ -74,13 +89,13 @@ function HomeNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                        <Icon
-                            name="menu"
-                            size={24}
-                            color="white"
-                            onPress={() => navigation.toggleDrawer()}
-                        />
-                    )
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                            />
+                        )
                     })
                 }
             />
@@ -108,13 +123,13 @@ function ContactNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                        <Icon
-                            name="menu"
-                            size={24}
-                            color="white"
-                            onPress={() => navigation.toggleDrawer()}
-                        />
-                    )
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                            />
+                        )
                     })
                 }
             />
@@ -143,13 +158,13 @@ function AboutNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                        <Icon
-                            name="menu"
-                            size={24}
-                            color="white"
-                            onPress={() => navigation.toggleDrawer()}
-                        />
-                    )
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                            />
+                        )
                     })
                 }
             />
@@ -253,11 +268,17 @@ function MainNavigatorDrawer() {
 
 class Main extends Component {
 
+    componentDidMount() {
+        this.props.fetchComments();
+        this.props.fetchDishes();
+        this.props.fetchLeaders();
+        this.props.fetchPromos();
+    }
 
     render() {
         return (
             <NavigationContainer>
-                <MainNavigatorDrawer/>
+                <MainNavigatorDrawer />
             </NavigationContainer>
         );
     }
@@ -288,4 +309,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Main;
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

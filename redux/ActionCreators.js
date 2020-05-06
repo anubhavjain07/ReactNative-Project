@@ -94,7 +94,7 @@ export const fetchPromos = () => (dispatch) => {
 };
 
 export const addPromos = (promotions) => ({
-    type: ActionTypes.ADD_DISHES,
+    type: ActionTypes.ADD_PROMOS,
     payload: promotions
 });
 
