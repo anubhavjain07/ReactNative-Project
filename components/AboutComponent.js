@@ -67,7 +67,7 @@ class About extends Component {
 
         else {
             return (
-                <ScrollView>
+                <ScrollView style={{ flex: 1, marginBottom: 15 }}>
                     <History />
                     <Card title="Corporate Leadership" >
                         <FlatList

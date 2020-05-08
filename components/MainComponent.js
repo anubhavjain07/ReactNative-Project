@@ -52,12 +52,14 @@ function MenuNavigatorScreen() {
                 component={Menu}
                 options={({ navigation }) => ({
                     headerLeft: () => (
-                        <Icon
-                            name="menu"
-                            size={24}
-                            color="white"
-                            onPress={() => navigation.toggleDrawer()}
-                        />
+                        <View style={{ marginLeft: 10 }}>
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                            />
+                        </View>
                     )
                 })
 
@@ -91,12 +93,14 @@ function HomeNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <Icon
-                                name="menu"
-                                size={24}
-                                color="white"
-                                onPress={() => navigation.toggleDrawer()}
-                            />
+                            <View style={{ marginLeft: 10 }}>
+                                <Icon
+                                    name="menu"
+                                    size={24}
+                                    color="white"
+                                    onPress={() => navigation.toggleDrawer()}
+                                />
+                            </View>
                         )
                     })
                 }
@@ -125,12 +129,14 @@ function ContactNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <Icon
-                                name="menu"
-                                size={24}
-                                color="white"
-                                onPress={() => navigation.toggleDrawer()}
-                            />
+                            <View style={{ marginLeft: 10 }}>
+                                <Icon
+                                    name="menu"
+                                    size={24}
+                                    color="white"
+                                    onPress={() => navigation.toggleDrawer()}
+                                />
+                            </View>
                         )
                     })
                 }
@@ -160,12 +166,14 @@ function ReservationNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <Icon
-                                name="menu"
-                                size={24}
-                                color="white"
-                                onPress={() => navigation.toggleDrawer()}
-                            />
+                            <View style={{ marginLeft: 10 }}>
+                                <Icon
+                                    name="menu"
+                                    size={24}
+                                    color="white"
+                                    onPress={() => navigation.toggleDrawer()}
+                                />
+                            </View>
                         )
                     })
                 }
@@ -195,12 +203,14 @@ function AboutNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <Icon
-                                name="menu"
-                                size={24}
-                                color="white"
-                                onPress={() => navigation.toggleDrawer()}
-                            />
+                            <View style={{ marginLeft: 10 }}>
+                                <Icon
+                                    name="menu"
+                                    size={24}
+                                    color="white"
+                                    onPress={() => navigation.toggleDrawer()}
+                                />
+                            </View>
                         )
                     })
                 }
