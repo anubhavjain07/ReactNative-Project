@@ -23,6 +23,8 @@ const mapDispatchToProps = dispatch => ({
 function RenderDish(props) {
     const dish = props.dish;
 
+    handelViewRef = ref => this.view = ref;
+
     const recognizeDrag = ({ moveX, moveY, dx, dy }) => {
         if (dx < -200) {
             return true;
@@ -36,6 +38,10 @@ function RenderDish(props) {
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (e, gestureState) => {
             return true;
+        },
+        onPanResponderGrant: () => {
+            this.view.rubberBand(1000).
+                then(endState => console.log(endState.finished ? 'finished' : 'cancelled'));
         },
         onPanResponderEnd: (e, gestureState) => {
             if (recognizeDrag(gestureState))
@@ -69,6 +75,7 @@ function RenderDish(props) {
                 animation='fadeInDown'
                 delay={1000}
                 duration={2000}
+                ref={this.handelViewRef}
                 {...panResponder.panHandlers}
             >
                 <Card
