@@ -5,6 +5,7 @@ import Dishdetail from './DishdetailComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Reservation from './ReservationComponent';
+import Favorites from './FavoriteComponent';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer';
@@ -32,6 +33,7 @@ const HomeNavigator = createStackNavigator();
 const ContactNavigator = createStackNavigator();
 const AboutNavigator = createStackNavigator();
 const ReservationNavigator = createStackNavigator();
+const FavoritesNavigator = createStackNavigator();
 
 function MenuNavigatorScreen() {
     return (
@@ -144,6 +146,43 @@ function ContactNavigatorScreen() {
         </ContactNavigator.Navigator>
     );
 }
+
+function FavoritesNavigatorScreen() {
+    return (
+        <FavoritesNavigator.Navigator
+            initialRouteName='Favorites'
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#512DA8'
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    color: '#fff'
+                }
+            }}
+        >
+            <FavoritesNavigator.Screen
+                name="My Favorites"
+                component={Favorites}
+                options={
+                    ({ navigation }) => ({
+                        headerLeft: () => (
+                            <View style={{ marginLeft: 10 }}>
+                                <Icon
+                                    name="menu"
+                                    size={24}
+                                    color="white"
+                                    onPress={() => navigation.toggleDrawer()}
+                                />
+                            </View>
+                        )
+                    })
+                }
+            />
+        </FavoritesNavigator.Navigator>
+    );
+}
+
 
 
 function ReservationNavigatorScreen() {
@@ -300,6 +339,21 @@ function MainNavigatorDrawer() {
                     drawerIcon: ({ tintcolor }) => (
                         <Icon
                             name='address-card'
+                            size={24}
+                            color={tintcolor}
+                            type='font-awesome'
+                        />
+                    )
+                }}
+            />
+
+            <MainNavigator.Screen
+                name="My Favorites"
+                component={FavoritesNavigatorScreen}
+                options={{
+                    drawerIcon: ({ tintcolor }) => (
+                        <Icon
+                            name='heart'
                             size={24}
                             color={tintcolor}
                             type='font-awesome'
