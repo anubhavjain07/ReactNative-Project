@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Login from './LoginComponent';
 import Menu from './MenuComponent';
 import Home from './HomeComponent';
 import Dishdetail from './DishdetailComponent';
@@ -34,6 +35,40 @@ const ContactNavigator = createStackNavigator();
 const AboutNavigator = createStackNavigator();
 const ReservationNavigator = createStackNavigator();
 const FavoritesNavigator = createStackNavigator();
+const LoginNavigator = createStackNavigator();
+
+function LoginNavigatorScreen() {
+    return (
+        <LoginNavigator.Navigator
+            initialRouteName='Login'
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#512DA8'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                }
+            }}
+        >
+            <MenuNavigator.Screen
+                name="Login"
+                component={Login}
+                options={({ navigation }) => ({
+                    headerLeft: () => (
+                        <Icon
+                            name="menu"
+                            size={24}
+                            color='white'
+                            onPress={() => navigation.toggleDrawer()}
+                            iconStyle={{ margin: 10 }}
+                        />
+                    )
+                })}
+            />
+        </LoginNavigator.Navigator>
+    );
+}
 
 function MenuNavigatorScreen() {
     return (
@@ -54,14 +89,15 @@ function MenuNavigatorScreen() {
                 component={Menu}
                 options={({ navigation }) => ({
                     headerLeft: () => (
-                        <View style={{ marginLeft: 10 }}>
-                            <Icon
-                                name="menu"
-                                size={24}
-                                color="white"
-                                onPress={() => navigation.toggleDrawer()}
-                            />
-                        </View>
+
+                        <Icon
+                            name="menu"
+                            size={24}
+                            color="white"
+                            onPress={() => navigation.toggleDrawer()}
+                            iconStyle={{ margin: 10 }}
+                        />
+
                     )
                 })
 
@@ -95,14 +131,15 @@ function HomeNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <View style={{ marginLeft: 10 }}>
-                                <Icon
-                                    name="menu"
-                                    size={24}
-                                    color="white"
-                                    onPress={() => navigation.toggleDrawer()}
-                                />
-                            </View>
+
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                                iconStyle={{ margin: 10 }}
+                            />
+
                         )
                     })
                 }
@@ -131,14 +168,15 @@ function ContactNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <View style={{ marginLeft: 10 }}>
-                                <Icon
-                                    name="menu"
-                                    size={24}
-                                    color="white"
-                                    onPress={() => navigation.toggleDrawer()}
-                                />
-                            </View>
+
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                                iconStyle={{ margin: 10 }}
+                            />
+
                         )
                     })
                 }
@@ -167,14 +205,15 @@ function FavoritesNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <View style={{ marginLeft: 10 }}>
-                                <Icon
-                                    name="menu"
-                                    size={24}
-                                    color="white"
-                                    onPress={() => navigation.toggleDrawer()}
-                                />
-                            </View>
+
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                                iconStyle={{ margin: 10 }}
+                            />
+
                         )
                     })
                 }
@@ -205,14 +244,15 @@ function ReservationNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <View style={{ marginLeft: 10 }}>
-                                <Icon
-                                    name="menu"
-                                    size={24}
-                                    color="white"
-                                    onPress={() => navigation.toggleDrawer()}
-                                />
-                            </View>
+
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                                iconStyle={{ margin: 10 }}
+                            />
+
                         )
                     })
                 }
@@ -242,14 +282,15 @@ function AboutNavigatorScreen() {
                 options={
                     ({ navigation }) => ({
                         headerLeft: () => (
-                            <View style={{ marginLeft: 10 }}>
-                                <Icon
-                                    name="menu"
-                                    size={24}
-                                    color="white"
-                                    onPress={() => navigation.toggleDrawer()}
-                                />
-                            </View>
+
+                            <Icon
+                                name="menu"
+                                size={24}
+                                color="white"
+                                onPress={() => navigation.toggleDrawer()}
+                                iconStyle={{ margin: 10 }}
+                            />
+
                         )
                     })
                 }
@@ -290,6 +331,21 @@ function MainNavigatorDrawer() {
                 (props) => <CustomDrawerContentComponent {...props} />
             }
         >
+            <MainNavigator.Screen
+                name="Login"
+                component={LoginNavigatorScreen}
+                options={{
+                    drawerIcon: ({ tintcolor }) => (
+                        <Icon
+                            name="sign-in"
+                            type="font-awesome"
+                            size={24}
+                            color={tintcolor}
+                        />
+                    )
+                }}
+            />
+
             <MainNavigator.Screen
                 name="Home"
                 component={HomeNavigatorScreen}
@@ -407,6 +463,7 @@ const styles = StyleSheet.create({
     },
     drawerHeader: {
         backgroundColor: '#512DA8',
+        marginTop: 40,
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
