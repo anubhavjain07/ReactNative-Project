@@ -8,6 +8,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { baseUrl } from '../shared/baseUrl';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
 
 
 const tabNavigator = createBottomTabNavigator();
@@ -41,7 +42,7 @@ function Login() {
                         )
                     }}
                 />
-                
+
                 <tabNavigator.Screen
                     name='Register'
                     component={RegisterTab}
@@ -185,9 +186,22 @@ class RegisterTab extends Component {
             });
 
             if (!capturedImage.cancelled) {
-                this.setState({ imageUrl: capturedImage.uri })
+                console.log(capturedImage);
+                this.processImage(capturedImage.uri);
             }
         }
+    }
+
+    processImage = async (imageUri) => {
+        let processedImage = await ImageManipulator.manipulateAsync(
+            imageUri,
+            [
+                { resize: { width: 400 } }
+            ],
+            { format: 'png' }
+        );
+        console.log(processedImage);
+        this.setState({ imageUrl: processedImage.uri });
     }
 
     handelRegister() {
